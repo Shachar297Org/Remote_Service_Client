@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="ComLibWrapperDll.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ComLibWrapper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="libs">
+      <UniqueIdentifier>{6f2ddea7-fb83-4aba-8e37-7efe0d77ccaa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libs\Interfaces.dll">
+      <Filter>libs</Filter>
+    </None>
+    <None Include="libs\RemoteServiceApi.dll">
+      <Filter>libs</Filter>
+    </None>
+    <None Include="libs\RemoteServiceApi.dll.config" />
+    <None Include="libs\COMM.dll">
+      <Filter>libs</Filter>
+    </None>
+    <None Include="..\x86\Debug\COMM.dll" />
+  </ItemGroup>
+</Project>

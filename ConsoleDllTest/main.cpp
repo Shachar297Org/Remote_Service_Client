@@ -22,12 +22,20 @@ int main(int argc, const char * argv[]) {
 		cin >> val;
 		if (val == 1)
 		{
-		 wo->RequestSupport();
+			/*if success is false it means that the RemoteService is down or that the RemoteService can't start connectwise service.
+		   * either way the SDK consumer can't resolve the problem and logs have to be sent.
+		   *
+		   * */
+		auto succeed = wo->RequestSupport();
 		
 		}
 		else if (val == 2)
 		{
-			 wo->StopSupport();
+			/*if success is false it means that the RemoteService is down or that the RemoteService can't start connectwise service.
+		   * either way the SDK consumer can't resolve the problem and logs have to be sent.
+		   *
+		   * */
+			auto succeed = wo->StopSupport();
 		}
 		else if (val == 5)
 		{

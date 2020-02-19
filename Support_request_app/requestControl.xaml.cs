@@ -60,10 +60,6 @@ namespace Support_request_app
 
             }
         }
-
-        private void ResetSessionTime_Click(object sender, RoutedEventArgs e)
-        {
-            RequestSupport.RenewSessionLimit();
-        }
+       
     }
 }

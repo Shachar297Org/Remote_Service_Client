@@ -46,6 +46,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>true</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -78,6 +79,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)\\bin\$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -102,6 +105,7 @@
     <PostBuildEvent>
       <Command>copy $(ProjectDir)\bin\$(Configuration)\ComLibWrapperDll.dll $(SolutionDir)$(Configuration)\
 copy $(ProjectDir)\bin\$(Configuration)\ComLibWrapperDll.lib $(SolutionDir)$(Configuration)\
+
 </Command>
     </PostBuildEvent>
     <PreBuildEvent>
@@ -113,13 +117,23 @@ copy $(SolutionDir)$(PlatformTarget)\$(Configuration) $(SolutionDir)$(Configurat
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;COMLIBWRAPPERDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;DLL_EXPORT;_DEBUG;COMLIBWRAPPERDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/Zc:twoPhase- %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalUsingDirectories>$(ProjectDir)\libs;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
     </Link>
+    <PreBuildEvent>
+      <Command>copy $(SolutionDir)\$(PlatformTarget)\$(Configuration) $(ProjectDir)\libs
+copy $(SolutionDir)$(PlatformTarget)\$(Configuration) $(SolutionDir)$(Configuration)</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>copy $(ProjectDir)\bin\$(Configuration)\ComLibWrapperDll.dll $(SolutionDir)$(Configuration)\
+copy $(ProjectDir)\bin\$(Configuration)\ComLibWrapperDll.lib $(SolutionDir)$(Configuration)\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

@@ -2,7 +2,7 @@
 
 enum class ComLibConnectionStatus : int {
 	None = 0,
-	CableDisconnected,
+	/*CableDisconnected,*/
 	SessionInStandby,
 	SessionIsActive,
 	SessionDisconnected,

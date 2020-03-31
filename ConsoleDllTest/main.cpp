@@ -4,10 +4,13 @@
 
 using namespace std;
 
+
 int main(int argc, const char * argv[]) {
 	auto * wo = CreateComLibWrapper();
+	
 	wo->SetStatusCallback([](ComLibConnectionStatus status) {
 		std::cout << "From callback: " << (int)status << std::endl;
+		
 	});
 	
 

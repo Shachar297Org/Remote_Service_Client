@@ -3,8 +3,8 @@
 enum class ComLibConnectionStatus : int {
 	None = 0,
 	/*CableDisconnected,*/
-	SessionInStandby,
-	SessionIsActive,
+	SessionConnectedAndStandby,
+	SessionConnectedAndActive,
 	SessionDisconnected,
 };
 

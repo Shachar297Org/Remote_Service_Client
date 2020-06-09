@@ -56,11 +56,29 @@ WrapperImpl::~WrapperImpl() {
 }
 
 bool WrapperImpl::RequestSupport() {
-	return (*m_ObjPtr)->RequestSupport();
+	{
+		try
+		{
+			return (*m_ObjPtr)->RequestSupport();
+		}
+		catch (...)
+		{
+			return false;
+		}
+	}
+	
 }
 
-bool WrapperImpl::StopSupport() {
-	return (*m_ObjPtr)->StopSupport();
+bool WrapperImpl::StopSupport()
+{
+	try
+	{
+		return (*m_ObjPtr)->StopSupport();
+	}
+	catch (...)
+	{
+		return false;
+	}
 }
 
 void WrapperImpl::SetStatusCallback(ComLibStatusCallbackPtr callbackPtr) {

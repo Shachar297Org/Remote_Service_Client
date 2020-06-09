@@ -5,5 +5,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComLibWrapper.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ConsoleDllTest.rc" />
   </ItemGroup>
 </Project>

@@ -29,7 +29,20 @@ int main(int argc, const char * argv[]) {
 		   * either way the SDK consumer can't resolve the problem and logs have to be sent.
 		   *
 		   * */
-		auto succeed = wo->RequestSupport();
+			try
+			{
+				auto succeed = wo->RequestSupport();
+				if (!succeed) cout << "false";
+				else cout<< "true";
+			}
+			catch (const std::exception&)
+			{
+
+			}
+			catch (...)
+			{
+
+			}
 		
 		}
 		else if (val == 2)
@@ -38,7 +51,16 @@ int main(int argc, const char * argv[]) {
 		   * either way the SDK consumer can't resolve the problem and logs have to be sent.
 		   *
 		   * */
-			auto succeed = wo->StopSupport();
+			try
+			{
+				auto succeed = wo->StopSupport();
+				if (!succeed) cout << "false";
+				else cout << "true";
+			}
+			catch (...)
+			{
+
+			}
 		}
 		else if (val == 5)
 		{

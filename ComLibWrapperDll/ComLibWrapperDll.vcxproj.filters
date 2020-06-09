@@ -5,6 +5,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComLibWrapper.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="libs">
@@ -22,6 +23,8 @@
     <None Include="libs\COMM.dll">
       <Filter>libs</Filter>
     </None>
-    <None Include="..\x86\Debug\COMM.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ComLibWrapperDll.rc" />
   </ItemGroup>
 </Project>
